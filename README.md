@@ -76,7 +76,7 @@ The provided code is a Java Spring Boot application with a RESTful API endpoint 
 
 ---
 
-![Feature Work Flow](https://github.com/chiragagarwal-j/Feature-12-Scheduling-of-Posts/blob/main/Documentation/Feature%20Work%20Flow.png)
+![Feature Work Flow](https://github.com/srima23/Music-Player-System/blob/main/Backend%20ER%20Diagram.png)
 
 
 
