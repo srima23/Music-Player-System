@@ -4,23 +4,20 @@
     <nav class="wrapper">
       <ul class="nav-items">
         <li class="nav-item">
-          <a routerLink="/cycles" class="nav-link" routerLinkActive="active">Home</a>
+          <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/cart" class="nav-link" routerLinkActive="active">Search</a>
+          <a routerLink="/search" class="nav-link" routerLinkActive="active">Search</a>
         </li>
         <li class="nav-item">
           <a routerLink="/Library" class="nav-link" routerLinkActive="active">Your Library</a>
         </li>
-        <!-- <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">
-            <div class="avatar" [title]="authService.getUsername()">
-              {{ this.authService.getUsername().charAt(0).toUpperCase() }}
-              <div class="admin" *ngIf="authService.isUserAdmin()" title="admin">
-                a
-              </div>
-            </div>
-            <button (click)="logout()" class="nav-link btn auth">Logout</button>
-          </li> -->
+        <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">
+          <div class="avatar" [title]="authService.getUsername()">
+            {{ this.authService.getUsername().charAt(0).toUpperCase() }}
+          </div>
+          <button (click)="logout()" class="nav-link btn auth">Logout</button>
+        </li>
         <ng-template #loginLink>
           <li class="nav-item">
             <div class="avatar" title="anonymous">A</div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SiteLayoutComponent } from './site-layout/site-layout.component';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -16,13 +17,14 @@ const routes: Routes = [
     path: '',
     component: SiteLayoutComponent,
     children: [
-      // { path: 'cycles', component: CyclesComponent },
+      { path: 'home', component: HomeComponent }
       // { path: 'restock', component: RestockComponent },
       // { path: 'cart', component: CartComponent },
       // { path: 'checkout', component: CheckoutComponent }, // Add this route
     ],
   },
-  { path: '', redirectTo: '/cycles', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({

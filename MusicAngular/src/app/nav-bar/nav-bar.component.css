@@ -1,108 +1,100 @@
 .navbar {
   display: flex;
-  flex-direction: column; /* Change to a vertical layout */
-  align-items: flex-start; /* Align items to the start */
-  width: 250px; /* Adjust the width of the sidebar as needed */
-  height: 100vh; /* Full height of the viewport */
-  padding: 1rem; /* Adjust padding as needed */
-  gap: 1rem;
-  background-color: #f5f5f5; /* Sidebar background color */
+  align-items: center;
+  width: 100vw;
+  max-width: 90%;
+  margin: auto;
+  height: 60px;
+  gap: 1.5rem;
+  padding-inline: 1rem;
+  justify-content: space-between;
 }
-
-/* Remove unnecessary styles */
 nav {
-  width: 100%; /* This is no longer needed */
+  width: 100%;
 }
-
-/* Adjust styles for vertical layout */
-/* Remove bullets from list items */
 .nav-items {
-  flex-direction: column; /* Stack items vertically */
-  width: 100%; /* Full width of the sidebar */
-  list-style-type: none; /* Remove bullets */
-  padding-left: 0; /* Remove default padding for list items */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
-/* Adjust styles for vertical layout */
 .nav-item {
-  margin-bottom: 0.5rem; /* Add space between items */
-  gap: 0; /* No need for gap in a vertical layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
-
-
+.nav-item:nth-child(2){
+  margin-right:auto;
+}
 .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #282829;
   font-weight: 700;
   font-size: 15px;
-  text-decoration: none; /* Remove underlines for links */
 }
 
-/* Update the active link style */
 .nav-link.active {
   color: #5e3db3;
 }
 
-  .title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #282829;
-  }
-  
-  header {
-    background-color: white;
-    border-bottom: 1px solid #dee0e1;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-  }
-  
-  /* .nav-link.active {
-    color: #5e3db3;
-  }
-  
-  .btn {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-family: Rubik, sans-serif;
-  }
-  
-  .auth {
-    border: 1px solid #dee0e1;
-    border-radius: 4px;
-    padding: 0.5rem 0.5rem;
-  }
-  
-  .avatar {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-    background-color: #5e3db3;
-    position: relative;
-  }
-  
-  .admin {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #5e3db3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px; 
-  }
-  
-  
-   */
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: Rubik, sans-serif;
+}
+
+.auth {
+  border: 1px solid #dee0e1;
+  border-radius: 4px;
+  padding: 0.5rem 0.5rem;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  background-color: #5e3db3;
+  position: relative;
+}
+
+.admin {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #5e3db3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; 
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #282829;
+}
+
+header {
+  background-color: white;
+  border-bottom: 1px solid #dee0e1;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}

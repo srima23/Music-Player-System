@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/MusicSystem
+    username: chiragagarwals
+    password: chiragagarwals
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+jwt:
+  private.key: classpath:app.key
+  public.key: classpath:app.pub

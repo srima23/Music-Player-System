@@ -9,9 +9,9 @@ import { AuthService } from '../service/auth.service';
 export class NavBarComponent {
   title = "Bajatey Raho"
 
-  // constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
-  // logout(): void {
-  //   this.authService.logout();
-  // }
+  logout(): void {
+    this.authService.logout();
+  }
 }

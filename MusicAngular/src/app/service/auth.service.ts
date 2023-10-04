@@ -26,7 +26,7 @@ export class AuthService {
       tap(res => {
         this._isLoggedIn$ = true;
         this.storage.set('token', res.token);
-        this.router.navigate(['/cycles']);
+        this.router.navigate(['/home']);
       }),
     );
   }
@@ -41,13 +41,13 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  isUserAdmin(): boolean {
-    if (!this._isLoggedIn$) return false;
-    const token = this.storage.get('token');
-    const payload = token?.split('.')[1];
-    const decodedPayload: Record<string, string> = JSON.parse(atob(payload as string));
-    return decodedPayload['scope'] === 'ROLE_ADMIN';
-  }
+  // isUserAdmin(): boolean {
+  //   if (!this._isLoggedIn$) return false;
+  //   const token = this.storage.get('token');
+  //   const payload = token?.split('.')[1];
+  //   const decodedPayload: Record<string, string> = JSON.parse(atob(payload as string));
+  //   return decodedPayload['scope'] === 'ROLE_ADMIN';
+  // }
 
   getUsername(): string {
     if (!this._isLoggedIn$) return 'anonymous';
