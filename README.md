@@ -7,7 +7,7 @@ This music player system is created on Angular based frontend and SpringBoot bas
 2.Suggest songs based on artists and genres.
 3.Search bar
 
-# Workflow for Springboot:
+# Workflow for Springboot
 
 The provided code is a Java Spring Boot application with a RESTful API endpoint for managing songs, users, and song libraries. Below is a breakdown of the code's workflow:
 
@@ -73,15 +73,11 @@ The provided code is a Java Spring Boot application with a RESTful API endpoint 
 - Input: Takes the user's ID as a path variable, fetches the user data, and retrieves all songs associated with that user from the library.
 - Output: Returns a list of songs owned by the user.
 
-
 ---
 
-![Feature Work Flow](https://github.com/srima23/Music-Player-System/blob/main/Backend%20ER%20Diagram.png)
+![Feature Work Flow](https://github.com/srima23/Music-Player-System/blob/main/Music%20system%20ER%20Diagram.png)
 
-
-
-
-# Team Members:
+# Team Members
 
 - **Chirag Agarwal**
 - **K Sai Sidhartha Reddy**
