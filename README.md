@@ -39,19 +39,6 @@ The provided code is a Java Spring Boot application with a RESTful API endpoint 
 - Input: Takes the genre as a path variable.
 - Output: Returns a list of songs matching the genre.
 
-## Creating a User
-
-- Endpoint: `@PostMapping("/createUser")`
-- Description: Defines an endpoint for creating a new user.
-- Input: Expects a `User` object in the request body.
-- Output: Returns the created user.
-
-## Getting Users
-
-- Endpoint: `@GetMapping("/users")`
-- Description: Defines an endpoint for retrieving a list of all users in the system.
-- Details: It makes use of the `userService` to fetch the user data.
-
 ## Creating a Library for a User
 
 - Endpoint: `@PostMapping("/createlib/{id}")`
