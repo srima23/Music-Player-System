@@ -1,13 +1,56 @@
-.navbar {
+/* .navbar {
   display: flex;
   align-items: center;
-  width: 100vw;
+  width: calc(100% - 300px); 
   max-width: 90%;
   margin: auto;
   height: 60px;
   gap: 1.5rem;
   padding-inline: 1rem;
   justify-content: space-between;
+}
+
+.left-sidebar {
+  width: 250px; 
+  background-color: #f0f0f0; 
+  padding: 1rem;
+  position: relative;
+  margin-top: 10px;
+}
+.library-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.library-link {
+  text-decoration: none;
+  color: #282829;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 0.5rem;
+}
+
+.create-playlist-button {
+  background-color: #5e3db3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
 }
 nav {
   width: 100%;
@@ -97,4 +140,187 @@ header {
   top: 0;
   width: 100%;
   z-index: 9999;
+} */
+
+/* Reset default margin and padding */
+.avatar {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  background-color: #5e3db3;
+  position: relative;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #000000;
+  padding: 24px;
+  color: #ffffff; /* Text color in the sidebar */
+}
+
+.sidebar .logo img {
+  width: 130px;
+}
+
+.sidebar .navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .navigation ul li {
+  padding: 10px 0;
+}
+
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Sidebar policies */
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+
+.sidebar .policies ul {
+  list-style: none;
+}
+
+.sidebar .policies ul li {
+  padding-bottom: 5px;
+}
+
+.sidebar .policies ul li a {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+/* Main container */
+.main-container {
+  margin-left: 250px;
+  margin-top: 60px; /* Adjusted top margin to clear the sidebar */
+  padding: 24px; /* Added padding to the main container */
+}
+
+/* Topbar styles */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #101010;
+    padding: 14px 30px;
+    z-index: 9999; /* Ensure it's above other elements */
+  }
+
+.topbar .prev-next-buttons button {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 18px;
+  border: 0;
+  background-color: #090909;
+  margin-right: 10px;
+}
+
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+  color: #ffffff; /* Text color in the topbar */
+
+}
+
+.topbar .navbar ul {
+  list-style: none;
+  margin-right: 20px; /* Adjusted margin */
+}
+
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.topbar .navbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #b3b3b3;
+}
+
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.topbar .navbar ul li.divider {
+  font-size: 26px;
+  margin: 0 20px;
+}
+
+.topbar .navbar button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #f2f2f2;
 }

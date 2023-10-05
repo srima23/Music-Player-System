@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <div class="navbar">
     <h3 class="title">{{ title }}</h3>
     <nav class="wrapper">
@@ -8,9 +8,6 @@
         </li>
         <li class="nav-item">
           <a routerLink="/search" class="nav-link" routerLinkActive="active">Search</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/Library" class="nav-link" routerLinkActive="active">Your Library</a>
         </li>
         <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">
           <div class="avatar" [title]="authService.getUsername()">
@@ -23,9 +20,77 @@
             <div class="avatar" title="anonymous">A</div>
             <a routerLink="/login" class="nav-link auth" routerLinkActive="active">Login</a>
           </li>
-        </ng-template>
-        <!-- <app-auth-button></app-auth-button> -->
-      </ul>
+        </ng-template> -->
+<!-- <app-auth-button></app-auth-button> -->
+<!-- </ul>
     </nav>
   </div>
-</header>
+  <div class="left-sidebar">
+    <ul class="library-menu">
+      <li class="library-item">
+        <a routerLink="/library" class="library-link">Library</a>
+      </li>
+      <li class="library-item">
+        <button class="create-playlist-button">+</button>
+      </li>
+    </ul>
+  </div>
+</header> -->
+
+
+
+<div class="sidebar">
+  <div class="logo">
+    <a href="#">
+      <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+    </a>
+  </div>
+
+  <div class="navigation">
+    <ul>
+      <li class="nav-item">
+        <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/search" class="nav-link" routerLinkActive="active">Search</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">Your Library</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/favsongs" class="nav-link" routerLinkActive="active">Favourite Songs</a>
+      </li>
+    </ul>
+  </div>
+
+
+</div>
+
+<div class="main-container">
+  <div class="topbar">
+    <div class="prev-next-buttons">
+      <button type="button" class="fas fa-chevron-left"></button>
+      <button type="button" class="fas fa-chevron-right"></button>
+    </div>
+
+    <div class="navbar">
+      <ul>
+        <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">
+          <div class="avatar" [title]="authService.getUsername()">
+            {{ this.authService.getUsername().charAt(0).toUpperCase() }}
+          </div>
+          <button (click)="logout()" class="nav-link btn auth">Logout</button>
+        </li>
+        <ng-template #loginLink>
+          <li class="nav-item">
+            <div class="avatar" title="anonymous">A</div>
+            <a routerLink="/login" class="nav-link auth" routerLinkActive="active">Login</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
