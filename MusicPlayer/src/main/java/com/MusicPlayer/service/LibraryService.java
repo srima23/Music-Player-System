@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.MusicPlayer.entity.Library;
@@ -12,6 +14,7 @@ import com.MusicPlayer.entity.Song;
 import com.MusicPlayer.entity.User;
 import com.MusicPlayer.repository.LibraryRepository;
 import com.MusicPlayer.repository.SongRepository;
+import com.MusicPlayer.repository.UserRepository;
 
 @Service
 public class LibraryService {
@@ -21,6 +24,9 @@ public class LibraryService {
 
     @Autowired
     private LibraryRepository libraryRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public Library createLibrary(User user, String libraryName) {
         Library library = new Library();
@@ -47,18 +53,28 @@ public class LibraryService {
         return false;
     }
 
-    public List<Song> getAllSongsOfUser(User user) {
-        // Find the user's library
-        Library userLibrary = libraryRepository.findByUser(user);
+    // public List<Song> getAllSongsOfUser() {
+    //     // Find the user's library
+    //     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+    //     Library userLibrary = libraryRepository.findByUser(user);
 
-        // Check if the user has a library
-        if (userLibrary != null) {
-            // Return the list of songs from the user's library
-            return userLibrary.getSongs();
-        } else {
-            // Return an empty list or handle the case where the user has no library
-            return Collections.emptyList();
-        }
+    //     // Check if the user has a library
+    //     if (userLibrary != null) {
+    //         // Return the list of songs from the user's library
+    //         return userLibrary.getSongs();
+    //     } else {
+    //         // Return an empty list or handle the case where the user has no library
+    //         return Collections.emptyList();
+    //     }
+    // }
+
+    public List<Library> getPlaylistNames(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+        List<Library> userLibrary = libraryRepository.findByUser(user);
+        System.out.println(userLibrary);
+        return userLibrary;
     }
 
 }

@@ -65,9 +65,8 @@ public class SongController {
     //     return usersService.getusers();
     // }
 
-    @PostMapping("/createlib/{id}")
-    public ResponseEntity<Library> createLibrary(@RequestBody LibraryRequest libraryRequest, @PathVariable int id) {
-        
+    @PostMapping("/create-playlist")
+    public ResponseEntity<Library> createLibrary(@RequestBody LibraryRequest libraryRequest) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUsername(authentication.getName()).orElse(null);
         
@@ -88,19 +87,24 @@ public class SongController {
         }
     }
 
-    @GetMapping("/user/{userId}/songs")
-    public List<Song> getAllSongsOfUser(@PathVariable("userId") int userId) {
+    // @GetMapping("/user/{userId}/songs")
+    // public List<Song> getAllSongsOfUser(@PathVariable("userId") int userId) {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+    //     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     User user = userRepository.findByUsername(authentication.getName()).orElse(null);
 
-        // User user = usersService.findById(userId);
+    //     // User user = usersService.findById(userId);
 
-        if (user != null) {
-            return libraryService.getAllSongsOfUser(user);
-        } else {
-            return Collections.emptyList();
-        }
+    //     if (user != null) {
+    //         return libraryService.getAllSongsOfUser(user);
+    //     } else {
+    //         return Collections.emptyList();
+    //     }
+    // }
+    @GetMapping("/getPlaylist")
+    public List<Library> setOfPlayList(){
+        List<Library> allLibraries= libraryService.getPlaylistNames();
+        return allLibraries;
     }
 
 }

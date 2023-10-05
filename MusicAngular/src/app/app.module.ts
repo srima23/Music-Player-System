@@ -12,6 +12,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeComponent } from './home/home.component';
 import { ArtistSongsComponent } from './artist-songs/artist-songs.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-playlist-dialog.component';
 
 @NgModule({
@@ -31,6 +35,10 @@ import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-p
     FormsModule,
     HttpClientModule,
     MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],

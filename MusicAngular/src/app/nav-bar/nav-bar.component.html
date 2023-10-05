@@ -56,8 +56,14 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link">Your Library<button>+</button></a>
+        <a class="nav-link">Your Library<button (click)="openCreatePlaylistDialog()">+</button></a>
       </li>
+      <div class="playlist-names">
+        <h2>Playlist Names</h2>
+        <ul>
+          <li *ngFor="let playlist of playlistNames">{{ playlist.name}}</li>
+        </ul>
+      </div>
       <li class="nav-item">
         <a routerLink="/favsongs" class="nav-link" routerLinkActive="active">Favourite Songs</a>
       </li>

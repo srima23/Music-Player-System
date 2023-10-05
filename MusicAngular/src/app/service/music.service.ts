@@ -17,17 +17,25 @@ export class MusicService {
     return this.http.get<any[]>(`${this.baseURL}/genre/${genre}` ,{headers:this.getHeaders()});
   }
 
-  createLibrary(userId: number, libraryName: string): Observable<any> {
-    const libraryRequest = { libraryName };
-    return this.http.post<any>(`${this.baseURL}/createlib/${userId}`, libraryRequest,{headers:this.getHeaders()});
-  }
-
   addSongToLibrary(libraryId: number, songId: number): Observable<string> {
     return this.http.post<string>(`${this.baseURL}/${libraryId}/add-song/${songId}`, {},{headers:this.getHeaders()});
   }
 
   getAllSongsOfUser(userId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseURL}/user/${userId}/songs`,{headers:this.getHeaders()});
+  }
+
+  createPlaylist(playlistName: string): Observable<any> {
+    const body = {
+      libraryName: playlistName
+    };
+    return this.http.post(`${this.baseURL}/create-playlist`, body, {
+      headers: this.getHeaders()
+    });
+  }
+
+  getPlaylistNames(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/getPlaylist`, { headers: this.getHeaders() });
   }
 
   getHeaders(){
