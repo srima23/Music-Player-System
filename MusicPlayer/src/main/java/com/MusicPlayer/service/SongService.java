@@ -1,7 +1,6 @@
 package com.MusicPlayer.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +26,14 @@ public class SongService {
     public List<Song> findByGenre(String genre)
     {
         return songRepository.findByGenre(genre);
+    }
+
+    public List<Song> getIdBySongName(String songName){
+        return songRepository.findByTitle(songName);
+    }
+
+    public Song getId(int Id){
+        return songRepository.findById(Id).get();
     }
 
 }

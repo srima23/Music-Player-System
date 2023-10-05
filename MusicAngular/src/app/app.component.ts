@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Music Player';
+  constructor(private router: Router) {}
+
+  shouldShowNavbar(): boolean {
+    const currentRoute = this.router.url;
+    const isLoginComponent = currentRoute.includes('/login');
+    return !isLoginComponent;
+  }
 }

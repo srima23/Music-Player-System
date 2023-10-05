@@ -13,11 +13,13 @@ export class CreatePlaylistDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<CreatePlaylistDialogComponent>,
     private musicService: MusicService
-  ) {}
+  ) { }
 
-  createPlaylist(playlistName:string) {
+  createPlaylist(playlistName: string) {
     if (this.playlistName.trim() !== '') {
-      this.musicService.createPlaylist(playlistName).subscribe();
+      this.musicService.createPlaylist(playlistName).subscribe(() => {
+        this.closeDialog();
+      });
     }
   }
 

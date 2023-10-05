@@ -1,6 +1,5 @@
 package com.MusicPlayer.controller;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +32,6 @@ public class SongController {
     @Autowired
     private LibraryService libraryService;
 
-    // @Autowired
-    // private UsersService usersService;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -54,23 +50,12 @@ public class SongController {
         return songService.findByGenre(genre);
     }
 
-    // @PostMapping("/createUser")
-    // public User creatUser(@RequestBody User user) {
-    //     return usersService.creatUser(user);
-    // }
-
-    // @GetMapping("/users")
-    // public List<User> getUsers() {
-    //     System.out.println(usersService.getusers());
-    //     return usersService.getusers();
-    // }
-
     @PostMapping("/create-playlist")
     public ResponseEntity<Library> createLibrary(@RequestBody LibraryRequest libraryRequest) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUsername(authentication.getName()).orElse(null);
-        
-        // User user = usersService.findById(id);
+
         Library createdLibrary = libraryService.createLibrary(user, libraryRequest.getLibraryName());
         return new ResponseEntity<>(createdLibrary, HttpStatus.CREATED);
     }
@@ -90,21 +75,57 @@ public class SongController {
     // @GetMapping("/user/{userId}/songs")
     // public List<Song> getAllSongsOfUser(@PathVariable("userId") int userId) {
 
-    //     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    //     User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+    // Authentication authentication =
+    // SecurityContextHolder.getContext().getAuthentication();
+    // User user =
+    // userRepository.findByUsername(authentication.getName()).orElse(null);
 
-    //     // User user = usersService.findById(userId);
+    // // User user = usersService.findById(userId);
 
-    //     if (user != null) {
-    //         return libraryService.getAllSongsOfUser(user);
-    //     } else {
-    //         return Collections.emptyList();
-    //     }
+    // if (user != null) {
+    // return libraryService.getAllSongsOfUser(user);
+    // } else {
+    // return Collections.emptyList();
+    // }
     // }
     @GetMapping("/getPlaylist")
-    public List<Library> setOfPlayList(){
-        List<Library> allLibraries= libraryService.getPlaylistNames();
+    public List<Library> setOfPlayList() {
+        List<Library> allLibraries = libraryService.getPlaylistNames();
         return allLibraries;
     }
 
+    @PostMapping("/addToFavSongs")
+    public ResponseEntity<?> addToFavoriteSongs(@RequestBody int songId) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+
+        if (user != null) {
+            Song song = songService.getId(songId);
+
+            if (song != null) {
+                if (!user.getFavoriteSongs().contains(song)) {
+                    user.getFavoriteSongs().add(song);
+                    userRepository.save(user);
+                    return ResponseEntity.ok(null);
+                } else {
+                    return ResponseEntity.badRequest().body("Song is already in favorites.");
+                }
+            }
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated.");
+    }
+
+    @GetMapping("/favorite-songs")
+    public ResponseEntity<?> getFavoriteSongs() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(authentication.getName()).orElse(null);
+
+        if (user != null) {
+            List<Song> favoriteSongs = user.getFavoriteSongs();
+            return ResponseEntity.ok(favoriteSongs);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated.");
+        }
+    }
 }

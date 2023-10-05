@@ -1,6 +1,5 @@
 package com.MusicPlayer.service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,7 +72,6 @@ public class LibraryService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUsername(authentication.getName()).orElse(null);
         List<Library> userLibrary = libraryRepository.findByUser(user);
-        System.out.println(userLibrary);
         return userLibrary;
     }
 

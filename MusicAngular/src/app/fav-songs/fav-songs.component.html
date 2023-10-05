@@ -1,0 +1,25 @@
+<div class="favorite-songs">
+    <h2>Favorite Songs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Music Director</th>
+                <th>Album</th>
+                <th>Genre</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let song of favoriteSongs">
+                <td>{{ song.title }}</td>
+                <td>{{ song.artist }}</td>
+                <td>{{ song.musicDirector }}</td>
+                <td>{{ song.album }}</td>
+                <td>{{ song.genre }}</td>
+                <td>{{ song.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

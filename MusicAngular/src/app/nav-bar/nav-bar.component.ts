@@ -12,11 +12,11 @@ import { MusicService } from '../service/music.service';
 })
 export class NavBarComponent {
   title = "Bajatey Raho"
-  playlistNames : any[]=[];
+  playlistNames: any[] = [];
 
-  constructor(public authService: AuthService,private dialog: MatDialog,private musicService:MusicService) {}
+  constructor(public authService: AuthService, private dialog: MatDialog, private musicService: MusicService) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.getAllPlaylistNames();
   }
 
@@ -25,19 +25,15 @@ export class NavBarComponent {
   }
 
   openCreatePlaylistDialog() {
-    console.log("opened");
-    const dialogRef = this.dialog.open(CreatePlaylistDialogComponent, {      
-      width: '400px', // Set the dialog width as per your design
+    const dialogRef = this.dialog.open(CreatePlaylistDialogComponent, {
+      width: '400px',
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe();
   }
   getAllPlaylistNames() {
     this.musicService.getPlaylistNames().subscribe(
-      (data: any[]) => {        
+      (data: any[]) => {
         this.playlistNames = data;
-        console.log(data);
       }
     );
   }

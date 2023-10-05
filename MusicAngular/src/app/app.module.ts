@@ -17,7 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-playlist-dialog.component';
-
+import { FavoriteSongsComponent } from './fav-songs/fav-songs.component';
+import { AddToPlaylistDialogComponent } from './add-to-playlist-dialog/add-to-playlist-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-p
     NavBarComponent,
     HomeComponent,
     ArtistSongsComponent,
-    CreatePlaylistDialogComponent
+    CreatePlaylistDialogComponent,
+    FavoriteSongsComponent,
+    AddToPlaylistDialogComponent
   ],
   imports: [
     BrowserModule,

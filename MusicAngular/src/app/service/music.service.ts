@@ -38,6 +38,14 @@ export class MusicService {
     return this.http.get<any[]>(`${this.baseURL}/getPlaylist`, { headers: this.getHeaders() });
   }
 
+  addtoFavSongs(id: number): Observable<any[]> {    
+    return this.http.post<any[]>(`${this.baseURL}/addToFavSongs`,id, { headers: this.getHeaders() });
+  }
+
+  getFavoriteSongs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/favorite-songs`, { headers: this.getHeaders() });
+  }
+
   getHeaders(){
     const headers = new HttpHeaders({
       'Authorization':'Bearer '+ localStorage.getItem('token')
