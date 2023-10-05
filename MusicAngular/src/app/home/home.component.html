@@ -1,1 +1,45 @@
-<p>home works!</p>
+<div class="spotify-playlists">
+    <h2>Songs</h2>
+    <div class="list">
+        <div class="item" *ngFor="let song of songs; let i = index">
+            <ng-container *ngIf="i < 4">
+            <img src="https://en.wikipedia.org/wiki/Divine_(rapper)#/media/File:Divine_(cropped).jpg" />
+            <h4>{{ song.title }}</h4>
+            <p>
+                <ng-container *ngIf="song.artist === song.musicDirector; else bothNames">
+                    {{ song.musicDirector }}
+                </ng-container>
+                <ng-template #bothNames>
+                    {{ song.artist }} & {{ song.musicDirector }}
+                </ng-template>
+            </p>
+        </ng-container>
+        </div>
+    </div>
+
+    <h2>Artists</h2>
+    <div class="list">
+        <div class="item" *ngFor="let artist of uniqueArtists; let i = index">
+            <ng-container *ngIf="i < 4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg/330px-AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg" />
+            <div class="play">
+                <button class="fa fa-play" (click)="goToArtistSongs(artist)"></button>
+            </div>
+            <h4>{{ artist }}</h4>
+        </ng-container>
+        </div>
+    </div>
+
+    <h2>Genres</h2>
+    <div class="list">
+        <div class="item" *ngFor="let genre of uniqueGenres; let i = index">
+            <ng-container *ngIf="i < 4">
+            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
+            <div class="play">
+                <button class="fa fa-play" (click)="filterSongsByGenre(genre)"></button>
+            </div>
+            <h4>{{ genre }}</h4>
+        </ng-container>
+        </div>
+    </div>
+</div>

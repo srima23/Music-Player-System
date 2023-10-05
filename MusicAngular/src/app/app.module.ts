@@ -10,6 +10,9 @@ import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeComponent } from './home/home.component';
+import { ArtistSongsComponent } from './artist-songs/artist-songs.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-playlist-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { HomeComponent } from './home/home.component';
     BaseLayoutComponent,
     LoginFormComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    ArtistSongsComponent,
+    CreatePlaylistDialogComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,0 +1,54 @@
+/* Style the table */
+.artist-songs table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Style table header */
+  .artist-songs th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  /* Style table rows */
+  .artist-songs tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Style even rows with a different background color */
+  .artist-songs tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  
+  /* Hover effect for rows */
+  .artist-songs tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Style play button */
+  .artist-songs .play {
+    width: 40px;
+    text-align: center;
+  }
+  
+  /* Style the play button icon */
+  .artist-songs .play button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Style the play button on hover */
+  .artist-songs .play button:hover {
+    color: #1db954; /* Spotify green */
+  }
+  

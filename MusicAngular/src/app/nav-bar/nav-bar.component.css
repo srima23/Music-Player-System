@@ -143,6 +143,150 @@ header {
 } */
 
 /* Reset default margin and padding */
+/* .navbar {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 300px); 
+  max-width: 90%;
+  margin: auto;
+  height: 60px;
+  gap: 1.5rem;
+  padding-inline: 1rem;
+  justify-content: space-between;
+}
+
+.left-sidebar {
+  width: 250px; 
+  background-color: #f0f0f0; 
+  padding: 1rem;
+  position: relative;
+  margin-top: 10px;
+}
+.library-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.library-link {
+  text-decoration: none;
+  color: #282829;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 0.5rem;
+}
+
+.create-playlist-button {
+  background-color: #5e3db3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+}
+nav {
+  width: 100%;
+}
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.nav-item:nth-child(2){
+  margin-right:auto;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #282829;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav-link.active {
+  color: #5e3db3;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: Rubik, sans-serif;
+}
+
+.auth {
+  border: 1px solid #dee0e1;
+  border-radius: 4px;
+  padding: 0.5rem 0.5rem;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  background-color: #5e3db3;
+  position: relative;
+}
+
+.admin {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #5e3db3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; 
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #282829;
+}
+
+header {
+  background-color: white;
+  border-bottom: 1px solid #dee0e1;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+} */
+
 .avatar {
   width: 35px;
   height: 35px;
@@ -166,16 +310,25 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #282829;
+  font-weight: 700;
+  font-size: 15px;
+}
 /* Sidebar styles */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 250px;
+  width: 150px;
   background-color: #000000;
   padding: 24px;
   color: #ffffff; /* Text color in the sidebar */
+  display: flex;
 }
 
 .sidebar .logo img {
@@ -238,12 +391,13 @@ body {
   text-decoration: underline;
 }
 
-/* Main container */
+
 .main-container {
-  margin-left: 250px;
-  margin-top: 60px; /* Adjusted top margin to clear the sidebar */
-  padding: 24px; /* Added padding to the main container */
+  margin-left: 250px; /* Adjusted margin to account for the sidebar width */
+  margin-top: 60px;
+  padding: 24px;
 }
+
 
 /* Topbar styles */
 .topbar {
@@ -255,7 +409,7 @@ body {
     justify-content: space-between;
     background-color: #101010;
     padding: 14px 30px;
-    z-index: 9999; /* Ensure it's above other elements */
+    z-index: 9999; 
   }
 
 .topbar .prev-next-buttons button {
@@ -273,13 +427,13 @@ body {
 .topbar .navbar {
   display: flex;
   align-items: center;
-  color: #ffffff; /* Text color in the topbar */
+  color: #ffffff;
 
 }
 
 .topbar .navbar ul {
   list-style: none;
-  margin-right: 20px; /* Adjusted margin */
+  margin-right: 20px;
 }
 
 .topbar .navbar ul li {
