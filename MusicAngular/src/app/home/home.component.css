@@ -1,143 +1,150 @@
 .spotify-playlists {
-    margin-left: 13%;
+  margin-left: 13%;
 }
 
 .spotify-playlists .list {
+  display: flex;
 
-    display: flex;
+  flex-wrap: wrap;
 
-    flex-wrap: wrap;
-
-    gap: 20px;
-
+  gap: 20px;
 }
 
 /* Add a hover effect */
 .play-button:hover {
-    background-color: #007bff; /* Change the background color on hover */
-    color: #fff; /* Change the text color on hover */
-    cursor: pointer; /* Change the cursor to a pointer on hover */
-  }
-  
+  background-color: #007bff; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
 
 .spotify-playlists .list .item {
+  width: 200px;
 
-    width: 200px;
+  /* Increased padding */
 
-    /* Increased padding */
+  background-color: #181818;
 
-    background-color: #181818;
+  padding-left: 20px;
+  /* Adjusted padding-left */
 
-    padding-left: 20px;
-    /* Adjusted padding-left */
+  border-radius: 8px;
+  /* Increased border-radius for rounded corners */
 
-    border-radius: 8px;
-    /* Increased border-radius for rounded corners */
+  cursor: pointer;
 
-    cursor: pointer;
+  transition: all ease 0.4s;
 
-    transition: all ease 0.4s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Added box shadow for a card-like effect */
 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    /* Added box shadow for a card-like effect */
-
-    text-align: center;
-    /* Centered text */
-
+  text-align: center;
+  /* Centered text */
 }
-
-
 
 .spotify-playlists .list .item:hover {
-
-    background-color: #252525;
-
+  background-color: #252525;
 }
-
-
 
 .spotify-playlists .list .item img {
+  width: 100%;
 
-    width: 100%;
+  border-radius: 8px;
+  /* Rounded corners for the image */
 
-    border-radius: 8px;
-    /* Rounded corners for the image */
-
-    margin-bottom: 10px;
-
+  margin-bottom: 10px;
 }
-
-
 
 .spotify-playlists .list .item .play {
-
-    position: relative;
-
+  position: relative;
 }
-
-
 
 .spotify-playlists .list .item .play .fa {
+  position: absolute;
 
-    position: absolute;
+  right: 10px;
 
-    right: 10px;
+  top: -30px;
+  /* Adjusted top position */
 
-    top: -30px;
-    /* Adjusted top position */
+  padding: 12px;
+  /* Reduced padding for the play button */
 
-    padding: 12px;
-    /* Reduced padding for the play button */
+  background-color: #1db954;
 
-    background-color: #1db954;
+  border-radius: 50%;
 
-    border-radius: 50%;
+  opacity: 0;
 
-    opacity: 0;
-
-    transition: all ease 0.4s;
-
+  transition: all ease 0.4s;
 }
-
-
 
 .spotify-playlists .list .item:hover .play .fa {
+  opacity: 1;
 
-    opacity: 1;
-
-    transform: translateY(-10px);
-    /* Adjusted translateY for the play button */
-
+  transform: translateY(-10px);
+  /* Adjusted translateY for the play button */
 }
-
-
 
 .spotify-playlists .list .item h4 {
+  color: #ffffff;
 
-    color: #ffffff;
+  font-size: 14px;
 
-    font-size: 14px;
+  margin-bottom: 10px;
 
-    margin-bottom: 10px;
+  white-space: nowrap;
 
-    white-space: nowrap;
+  overflow: hidden;
 
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
+  text-overflow: ellipsis;
 }
-
-
 
 .spotify-playlists .list .item p {
+  color: #989898;
 
-    color: #989898;
+  font-size: 12px;
 
-    font-size: 12px;
+  line-height: 20px;
 
-    line-height: 20px;
-
-    font-weight: 600;
-
+  font-weight: 600;
 }
+
+.dropdown-menu {
+  display: flex;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.dropdown-menu li {
+  text-align: center;
+  list-style: none;
+}
+
+/* CSS for search results container */
+.search-results {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* CSS for each search result item */
+.search-results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.search-results li:hover {
+  background-color: #f5f5f5;
+}
+

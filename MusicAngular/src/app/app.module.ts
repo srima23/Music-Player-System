@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatePlaylistDialogComponent } from './create-playlist-dialog/create-playlist-dialog.component';
 import { FavoriteSongsComponent } from './fav-songs/fav-songs.component';
 import { AddToPlaylistDialogComponent } from './add-to-playlist-dialog/add-to-playlist-dialog.component';
+import { PlaylistSongsComponent } from './playlist-songs/playlist-songs.component';
+import { SongsByGenreComponent } from './songs-by-genre/songs-by-genre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { AddToPlaylistDialogComponent } from './add-to-playlist-dialog/add-to-pl
     ArtistSongsComponent,
     CreatePlaylistDialogComponent,
     FavoriteSongsComponent,
-    AddToPlaylistDialogComponent
+    AddToPlaylistDialogComponent,
+    PlaylistSongsComponent,
+    SongsByGenreComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,47 @@
+.genre-songs table {
+    margin-left: 16%;
+    width: 83%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .genre-songs th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .genre-songs tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .genre-songs tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  
+  .genre-songs tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .genre-songs .play {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .genre-songs .play button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .genre-songs .play button:hover {
+    color: #1db954;
+  }
+  

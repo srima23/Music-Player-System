@@ -1,0 +1,27 @@
+<div class="genre-songs">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Duration</th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let song of filteredSongs">
+          <td class="play">
+            <!-- <button class="fa fa-play" (click)="playSong(song)"></button> -->
+          </td>
+          <td>{{ song.title }}</td>
+          <td>{{ song.artist }}</td>
+          <td>{{ song.album }}</td>
+          <td>{{ song.duration }}s</td>
+          <td>{{ song.genre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

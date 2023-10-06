@@ -1,0 +1,47 @@
+.playlist-songs table {
+    margin-left: 14%;
+    width: 87%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .playlist-songs th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .playlist-songs tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .playlist-songs tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  
+  .playlist-songs tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .playlist-songs .play {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .playlist-songs .play button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .playlist-songs .play button:hover {
+    color: #1db954;
+  }
+  

@@ -7,38 +7,35 @@
 
   <div class="navigation">
     <ul>
+
       <li class="nav-item">
         <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
       </li>
+
       <li class="nav-item">
-        <a routerLink="/search" class="nav-link" routerLinkActive="active">Search</a>
+        <a routerLink="/favorite-songs" class="nav-link" routerLinkActive="active">Favourite Songs</a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link">Your Library<button (click)="openCreatePlaylistDialog()">+</button></a>
       </li>
+
       <div class="playlist-names">
         <h2>Playlist Names</h2>
         <ul>
-          <li *ngFor="let playlist of playlistNames">{{ playlist.name}}</li>
+          <li *ngFor="let playlist of playlistNames">
+            <button mat-button [routerLink]="'/playlist/' + playlist.id">{{ playlist.name }}</button>
+          </li>
         </ul>
       </div>
-      <li class="nav-item">
-        <a routerLink="/favorite-songs" class="nav-link" routerLinkActive="active">Favourite Songs</a>
-      </li>
+
     </ul>
   </div>
-
 
 </div>
 
 <div class="main-container">
   <div class="topbar">
-    <div class="prev-next-buttons">
-      <button type="button" class="fas fa-chevron-left"></button>
-      <button type="button" class="fas fa-chevron-right"></button>
-    </div>
-
     <div class="navbar">
       <ul>
         <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">

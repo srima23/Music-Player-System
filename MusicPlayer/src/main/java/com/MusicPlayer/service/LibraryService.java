@@ -1,5 +1,6 @@
 package com.MusicPlayer.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,6 +74,18 @@ public class LibraryService {
         User user = userRepository.findByUsername(authentication.getName()).orElse(null);
         List<Library> userLibrary = libraryRepository.findByUser(user);
         return userLibrary;
+    }
+
+    public List<Song> getSongsByLibraryId(int libraryId) {
+       
+        Optional<Library> libraryOptional = libraryRepository.findById(libraryId);
+
+        if (libraryOptional.isPresent()) {
+            Library library = libraryOptional.get();
+            return library.getSongs();
+        } else {
+            return Collections.emptyList();
+        }
     }
 
 }

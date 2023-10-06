@@ -64,30 +64,26 @@ public class SongController {
     public ResponseEntity<String> addSongToLibrary(
             @PathVariable int libraryId,
             @PathVariable int id) {
-        boolean added = libraryService.addSongToLibrary(libraryId, id);
+                
+        boolean added = libraryService.addSongToLibrary(id,libraryId);
         if (added) {
-            return new ResponseEntity<>("Song added to library successfully", HttpStatus.OK);
+            return new ResponseEntity<>(null);
         } else {
             return new ResponseEntity<>("Library or song not found", HttpStatus.NOT_FOUND);
         }
     }
 
-    // @GetMapping("/user/{userId}/songs")
-    // public List<Song> getAllSongsOfUser(@PathVariable("userId") int userId) {
+    @GetMapping("/{libraryId}/songs")
+    public ResponseEntity<List<Song>> getSongsByLibraryId(@PathVariable int libraryId) {
+        List<Song> songs = libraryService.getSongsByLibraryId(libraryId);
 
-    // Authentication authentication =
-    // SecurityContextHolder.getContext().getAuthentication();
-    // User user =
-    // userRepository.findByUsername(authentication.getName()).orElse(null);
+        if (songs != null && !songs.isEmpty()) {
+            return new ResponseEntity<>(songs, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
-    // // User user = usersService.findById(userId);
-
-    // if (user != null) {
-    // return libraryService.getAllSongsOfUser(user);
-    // } else {
-    // return Collections.emptyList();
-    // }
-    // }
     @GetMapping("/getPlaylist")
     public List<Library> setOfPlayList() {
         List<Library> allLibraries = libraryService.getPlaylistNames();

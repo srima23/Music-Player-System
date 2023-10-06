@@ -41,6 +41,10 @@ body {
   display: flex;
 }
 
+.playlist-names{
+  font-size: smaller;
+}
+
 .sidebar .logo img {
   width: 130px;
 }
@@ -188,3 +192,4 @@ body {
 .topbar .navbar button:focus {
   background-color: #f2f2f2;
 }
+

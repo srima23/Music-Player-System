@@ -12,7 +12,7 @@ export class ArtistSongsComponent implements OnInit {
   selectedArtist: string = '';
   songs: Song[] = [];
   filteredSongs: Song[] = [];
-  artistName : string = ''; // Add artistName property
+  artistName : string = '';
 
   constructor(private route: ActivatedRoute,private musicService:MusicService) {}
 

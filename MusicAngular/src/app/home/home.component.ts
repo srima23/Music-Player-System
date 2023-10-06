@@ -17,44 +17,48 @@ export class HomeComponent {
   uniqueArtists: string[] = [];
   uniqueGenres: string[] = [];
   selectedGenre: string = '';
+  playlistNames: any[] = [];
+  showDropdown: boolean[] = [];
+  searchTerm: string = '';
+  showDropdownForSearch: boolean = false;
+  filteredArtists: string[] = [];
+  filteredGenres: string[] = [];
 
-  constructor(private musicService: MusicService,private router:Router,private dialog: MatDialog) {}
+
+
+  constructor(private musicService: MusicService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.getAllPlaylistNames();
     this.musicService.getAllSongs().subscribe((data) => {
       this.songs = data;
       console.log(this.songs);
-        const uniqueArtistsSet = new Set<string>();
-        this.songs.forEach((song) => {
+      const uniqueArtistsSet = new Set<string>();
+      this.songs.forEach((song) => {
         const artists = song.artist.split(' & ');
         artists.forEach((artist) => {
           uniqueArtistsSet.add(artist);
         });
       });
-        this.uniqueArtists = Array.from(uniqueArtistsSet);
-  
+      this.uniqueArtists = Array.from(uniqueArtistsSet);
+
       this.uniqueGenres = Array.from(new Set(this.songs.map(song => song.genre)));
     });
   }
-  
+
+  toggleDropdown(index: number) {
+    this.showDropdown[index] = !this.showDropdown[index];
+  }
 
   goToArtistSongs(artistName: string) {
     this.router.navigate(['/artist-songs', artistName]);
   }
-  
 
-  filterSongsByGenre(genreName: string) {
-    if (this.selectedGenre === genreName) {
-      return;
-    }
-
-    this.selectedGenre = genreName;
-    if (genreName === 'All Genres') {
-      this.filteredSongs = [...this.songs];
-    } else {
-      this.filteredSongs = this.songs.filter((song) => song.genre === genreName);
-    }
+  goToGenreSongs(genreName: string) {
+    this.router.navigate(['/genre-songs', genreName]);
   }
+
+ 
 
   addToFavSongs(id: number) {
     this.musicService.addtoFavSongs(id).subscribe(
@@ -72,6 +76,53 @@ export class HomeComponent {
       width: '200px',
       disableClose: true,
     });
+  }
+
+  getAllPlaylistNames() {
+    this.musicService.getPlaylistNames().subscribe(
+      (data: any[]) => {
+        this.playlistNames = data;
+      }
+    );
+  }
+
+  addToPlaylist(songId: number, playlistId: number) {
+    this.musicService.addSongToPlaylist(songId, playlistId).subscribe();
+  }
+
+  // searchSongs() {
+  //   if (this.searchTerm.trim() === '') {
+  //     this.filteredSongs = [];
+  //     this.showDropdownForSearch = false;
+  //   } else {
+  //     this.filteredSongs = this.songs.filter((song) =>
+  //       song.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+  //       song.artist.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+  //       song.genre.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //     );
+  //     this.showDropdownForSearch = true;
+  //   }
+  // }
+  searchSongs() {
+    if (this.searchTerm.trim() === '') {
+      this.showDropdownForSearch = false;
+    } else {
+      if (this.searchTerm.startsWith('@')) {
+        const artistSearchTerm = this.searchTerm.substring(1).toLowerCase();
+        this.filteredSongs = this.songs.filter((song) =>
+          song.artist.toLowerCase().includes(artistSearchTerm)
+        );
+      } else if (this.searchTerm.startsWith('/')) {
+        const genreSearchTerm = this.searchTerm.substring(1).toLowerCase();
+        this.filteredSongs = this.songs.filter((song) =>
+          song.genre.toLowerCase().includes(genreSearchTerm)
+        );
+      } else {
+        this.filteredSongs = this.songs.filter((song) =>
+          song.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      }
+    }
   }
 
 }
