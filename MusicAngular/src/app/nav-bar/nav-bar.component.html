@@ -39,10 +39,17 @@
     <div class="navbar">
       <ul>
         <li class="nav-item" *ngIf="authService.isLoggedIn; else loginLink">
-          <div class="avatar" [title]="authService.getUsername()">
-            {{ this.authService.getUsername().charAt(0).toUpperCase() }}
+          <div class="fix">
+
+            <div class="avatar" [title]="authService.getUsername()">
+              {{ this.authService.getUsername().charAt(0).toUpperCase() }}
+            </div>
+
+            <div>
+              <button (click)="logout()" class="nav-link btn auth">Logout</button>
+            </div>
+
           </div>
-          <button (click)="logout()" class="nav-link btn auth">Logout</button>
         </li>
         <ng-template #loginLink>
           <li class="nav-item">

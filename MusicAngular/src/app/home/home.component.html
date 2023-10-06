@@ -8,7 +8,7 @@
                     <button (click)="goToArtistSongs(song.artist)">Artist: {{ song.artist }}</button>
                 </ng-container>
                 <ng-container *ngIf="searchTerm.startsWith('/')">
-                    Genre: {{ song.genre }}
+                    <button (click)="goToGenreSongs(song.genre)">Genre: {{ song.genre }}</button>
                 </ng-container>
                 <ng-container *ngIf="!searchTerm.startsWith('@') && !searchTerm.startsWith('/')">
                     Song name: {{ song.title }}
@@ -21,7 +21,7 @@
     <h2>Songs</h2>
     <div class="list">
         <div class="item" *ngFor="let song of songs; let i = index">
-            <ng-container *ngIf="i < 4">
+            <ng-container *ngIf="i < 8">
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsRVRzfyLpNbXFvfCCOhvdWG-qEl5TbRHK6g&usqp=CAU" />
                 <h4>{{ song.title }}</h4>
@@ -49,7 +49,7 @@
     <h2>Artists</h2>
     <div class="list">
         <div class="item" *ngFor="let artist of uniqueArtists; let i = index">
-            <ng-container *ngIf="i < 4">
+            <ng-container *ngIf="i < 8">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg/330px-AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg" />
                 <div class="play">

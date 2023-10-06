@@ -58,8 +58,6 @@ export class HomeComponent {
     this.router.navigate(['/genre-songs', genreName]);
   }
 
- 
-
   addToFavSongs(id: number) {
     this.musicService.addtoFavSongs(id).subscribe(
       () => {
