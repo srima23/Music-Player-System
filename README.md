@@ -188,17 +188,15 @@ This Angular project is organized into several components, modules, and an `AppR
 - **Parameters**:
   - `genre` (path, required, string)
 
-### Components
+### Schemas
 
-#### Schemas
-
-##### LibraryRequest
+#### LibraryRequest
 
 - Type: object
 - Properties:
   - `libraryName` (string)
 
-##### Library
+#### Library
 
 - Type: object
 - Properties:
@@ -207,7 +205,7 @@ This Angular project is organized into several components, modules, and an `AppR
   - `user` (User)
   - `songs` (array, items: Song)
 
-##### Song
+#### Song
 
 - Type: object
 - Properties:
@@ -220,7 +218,7 @@ This Angular project is organized into several components, modules, and an `AppR
   - `duration` (integer, format: int32)
   - `audioUrl` (string)
 
-##### User
+#### User
 
 - Type: object
 - Properties:
@@ -230,7 +228,7 @@ This Angular project is organized into several components, modules, and an `AppR
   - `password` (string)
   - `favoriteSongs` (array, items: Song)
 
-#### ER Diagram
+### ER Diagram
 
 ![ER Diagram](https://github.com/srima23/Music-Player-System/blob/main/Images/Music%20system%20ER%20Diagram.png)
 
