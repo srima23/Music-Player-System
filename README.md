@@ -1,55 +1,170 @@
 # Music Player System
 
-## Introduction
+Music Player System is a web application that allows users to listen to music, create playlists, and manage their favorite songs. It's built with Angular, HTML, CSS, TypeScript for the frontend, Spring Boot and RESTful APIs for the backend, and uses a MySQL database managed with DBeaver.
 
-This music player system is created on Angular based frontend and SpringBoot based backend. Some of the features include:
-1.Adding a custom playlist
-2.Suggest songs based on artists and genres.
-3.Search bar
+## Table of Contents
 
-## Workflow for Springboot
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [RESTful APIs](#restful-apis)
+- [Components](#components)
+  - [Schemas](#schemas)
+- [ER Diagram](#er-diagram)
+- [Authentication and Authorization](#authentication-and-authorization)
+- [Team Members](#team-members)
 
-The Java Spring Boot application consists of a RESTful API endpoint for managing songs, users, and song libraries. Below is a breakdown of the code's workflow:
+## Features
 
-- ## Controller Configuration
+1. **Search Songs**: Users can search for songs by title, artists, or genres.
 
-  - The code defines a Spring `RestController` named `SongController`, responsible for handling incoming HTTP requests related to songs, users, and libraries.
-  - It sets up endpoints under the base path "/song" for various operations.
+2. **Create Playlists**: Users can create new playlists and add songs to them.
 
-- ## Autowired Services
+3. **Favorite Songs**: Users can mark songs as favorites and access them easily from their favorite songs list.
 
-  - The controller autowires three service classes: `SongService`, `LibraryService`, and `UserService`. These services encapsulate the business logic for songs, libraries, and users.
+4. **Categorization**: The system categorizes songs by artists and genres, making it easy for users to explore music based on their preferences.
 
-- ## Adding a Song
+## Technologies Used
 
-  - Description: Defines an endpoint for adding a new song to the system.
-  - Output: Returns the added song.
+- Frontend: HTML, CSS, Angular, TypeScript
+- Backend: Spring Boot, RESTful APIs
+- Database: MySQL (Managed with DBeaver)
 
-- ## Getting Songs
+## RESTful APIs
 
-  - Description: Defines an endpoint for retrieving a list of all songs in the system.
+- **Generated server URL**: [http://localhost:8080](http://localhost:8080)
 
-- ## Getting Songs by Genre
+### Add Song
 
-  - Description: Defines an endpoint for retrieving songs by a specific genre.
-  - Output: Returns a list of songs matching the genre.
+- **Endpoint**: `/player/addsong`
+- **Method**: POST
+- **Tags**: song-controller
+- **Operation ID**: postMethodName
+- **Request Body**:
+  - Content-Type: application/json
+  - Schema: [Song](#song)
 
-- ## Creating a Library for a User
+### Get Songs
 
-  - Description: Defines an endpoint for creating a library for a specific user.
-  - Output: Creates a library associated with the user and returns a response entity with the created library.
+- **Endpoint**: `/player/getsongs`
+- **Method**: GET
+- **Tags**: song-controller
+- **Operation ID**: getSongs
 
-- ## Adding a Song to a Library
+### Create Playlist
 
-  - Description: Defines an endpoint for adding a song to a library.
-  - Details: It calls the `libraryService` to add the specified song to the specified library and returns a response entity indicating success or failure.
+- **Endpoint**: `/player/create-playlist`
+- **Method**: POST
+- **Tags**: song-controller
+- **Operation ID**: createPlaylist
+- **Request Body**:
+  - Content-Type: application/json
+  - Schema: [LibraryRequest](#libraryrequest)
 
-- ## Getting All Songs of a User
+### Get Playlist
 
-  - Description: Defines an endpoint for retrieving all songs in a user's library.
-  - Output: Returns a list of songs owned by the user.
+- **Endpoint**: `/player/getPlaylist`
+- **Method**: GET
+- **Tags**: song-controller
+- **Operation ID**: setOfPlayList
 
-![Feature Work Flow](https://github.com/srima23/Music-Player-System/blob/main/Music%20system%20ER%20Diagram.png)
+### Add Song to Playlist
+
+- **Endpoint**: `/player/{libraryId}/add-song/{id}`
+- **Method**: POST
+- **Tags**: song-controller
+- **Operation ID**: addSongToLibrary
+- **Parameters**:
+  - `libraryId` (path, required, integer, format: int32)
+  - `id` (path, required, integer, format: int32)
+- **Request Body**: None
+
+### Get Songs by Library ID
+
+- **Endpoint**: `/player/{libraryId}/songs`
+- **Method**: GET
+- **Tags**: song-controller
+- **Operation ID**: getSongsByLibraryId
+- **Parameters**:
+  - `libraryId` (path, required, integer, format: int32)
+
+### Add to Favorite Songs
+
+- **Endpoint**: `/player/addToFavSongs`
+- **Method**: POST
+- **Tags**: song-controller
+- **Operation ID**: addToFavoriteSongs
+- **Request Body**:
+  - Content-Type: application/json
+  - Schema: Integer (format: int32)
+
+### Get Favorite Songs
+
+- **Endpoint**: `/player/favorite-songs`
+- **Method**: GET
+- **Tags**: song-controller
+- **Operation ID**: getFavoriteSongs
+
+### Get Songs by Genre
+
+- **Endpoint**: `/player/genre/{genre}`
+- **Method**: GET
+- **Tags**: song-controller
+- **Operation ID**: getgenre
+- **Parameters**:
+  - `genre` (path, required, string)
+
+## Components
+
+### Schemas
+
+#### LibraryRequest
+
+- Type: object
+- Properties:
+  - `libraryName` (string)
+
+#### Library
+
+- Type: object
+- Properties:
+  - `id` (integer, format: int32)
+  - `name` (string)
+  - `user` (User)
+  - `songs` (array, items: Song)
+
+#### Song
+
+- Type: object
+- Properties:
+  - `id` (integer, format: int32)
+  - `title` (string)
+  - `artist` (string)
+  - `musicDirector` (string)
+  - `album` (string)
+  - `genre` (string)
+  - `duration` (integer, format: int32)
+  - `audioUrl` (string)
+
+#### User
+
+- Type: object
+- Properties:
+  - `id` (integer, format: int32)
+  - `username` (string)
+  - `email` (string)
+  - `password` (string)
+  - `favoriteSongs` (array, items: Song)
+
+## ER Diagram
+
+![ER Diagram](https://github.com/srima23/Music-Player-System/blob/main/Music%20system%20ER%20Diagram.png)
+
+## Authentication and Authorization
+
+This project uses authentication and authorization to secure access to endpoints.
+
+- **Authentication**: Users need to authenticate to access protected endpoints.
+- **Authorization**: There is one role: `USER`, which grants access the features.
 
 ## Team Members
 
