@@ -53,21 +53,6 @@ public class LibraryService {
         return false;
     }
 
-    // public List<Song> getAllSongsOfUser() {
-    //     // Find the user's library
-    //     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    //     User user = userRepository.findByUsername(authentication.getName()).orElse(null);
-    //     Library userLibrary = libraryRepository.findByUser(user);
-
-    //     // Check if the user has a library
-    //     if (userLibrary != null) {
-    //         // Return the list of songs from the user's library
-    //         return userLibrary.getSongs();
-    //     } else {
-    //         // Return an empty list or handle the case where the user has no library
-    //         return Collections.emptyList();
-    //     }
-    // }
 
     public List<Library> getPlaylistNames(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

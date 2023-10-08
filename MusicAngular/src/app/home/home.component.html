@@ -1,17 +1,17 @@
 <div class="spotify-playlists">
 
-    <input type="text" [(ngModel)]="searchTerm" (input)="searchSongs()" placeholder="Search artists, songs, genres">
+    <input class="inputtext" type="text" [(ngModel)]="searchTerm" (input)="searchSongs()" placeholder="Search artists, songs, genres">
     <div class="search-results">
         <ul *ngIf="showDropdown">
             <li *ngFor="let song of filteredSongs">
                 <ng-container *ngIf="searchTerm.startsWith('@')">
-                    <button (click)="goToArtistSongs(song.artist)">Artist: {{ song.artist }}</button>
+                    <button (click)="goToArtistSongs(song.artist)">{{ song.artist }}</button>
                 </ng-container>
                 <ng-container *ngIf="searchTerm.startsWith('/')">
-                    <button (click)="goToGenreSongs(song.genre)">Genre: {{ song.genre }}</button>
+                    <button (click)="goToGenreSongs(song.genre)">{{ song.genre }}</button>
                 </ng-container>
                 <ng-container *ngIf="!searchTerm.startsWith('@') && !searchTerm.startsWith('/')">
-                    Song name: {{ song.title }}
+                    {{ song.title }}
                 </ng-container>
             </li>
         </ul>
@@ -51,7 +51,7 @@
         <div class="item" *ngFor="let artist of uniqueArtists; let i = index">
             <ng-container *ngIf="i < 8">
                 <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg/330px-AR_Rahman_At_The_%E2%80%98Marvel_Anthem%E2%80%99_Launch.jpg" />
+                    src="https://images.sampletemplates.com/wp-content/uploads/2021/04/Music-Artist-Sponsorship-Proposal-Sample.jpg" />
                 <div class="play">
                     <button class="fa fa-play" (click)="goToArtistSongs(artist)">👤</button>
                 </div>
@@ -64,9 +64,9 @@
     <div class="list">
         <div class="item" *ngFor="let genre of uniqueGenres; let i = index">
             <ng-container *ngIf="i < 4">
-                <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
+                <img src="https://img.freepik.com/premium-photo/colorful-neon-background-musical-style-theme-abstract-musical-instruments-3d-layout-generative-ai-illustrator_993599-1638.jpg" />
                 <div class="play">
-                    <button class="fa fa-play" (click)="goToGenreSongs(genre)"></button>
+                    <button class="fa fa-play" (click)="goToGenreSongs(genre)">🎵</button>
                 </div>
                 <h4>{{ genre }}</h4>
             </ng-container>

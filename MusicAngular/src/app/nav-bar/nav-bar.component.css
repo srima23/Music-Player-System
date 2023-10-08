@@ -25,8 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   color: #282829;
-  font-weight: 700;
-  font-size: 15px;
+  /* font-weight: 700;
+  font-size: 20px; */
 }
 
 .sidebar {
@@ -65,6 +65,7 @@ body {
   font-size: 13px;
   display: flex;
   align-items: center;
+  font-size: 18px;
 }
 
 .sidebar .navigation ul li a:hover,
@@ -196,5 +197,7 @@ body {
 
 .fix{
   display: flex;
-  float: right;
+  align-items: center; 
+  justify-content: center;
+
 }

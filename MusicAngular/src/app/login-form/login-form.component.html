@@ -6,6 +6,7 @@
       <form #loginForm="ngForm" class="auth-form" (ngSubmit)="login(loginForm)">
         <h3 class="auth-title">Welcome back</h3>
         <p class="auth-desc">Welcome back! Please enter your details</p>
+
         <div class="input-group">
           <label for="username" class="label">Username</label>
           <div class="input-container">
@@ -13,12 +14,14 @@
               required ngModel />
           </div>
         </div>
+
         <div class="input-group">
           <label for="password" class="label">password</label>
           <div class="input-container">
             <input type="password" name="password" id="password" placeholder="Enter your password" required ngModel />
           </div>
         </div>
+        
         <button class="auth-btn" type="submit">submit</button>
         <!-- <app-auth-button></app-auth-button> -->
         <span class="message">Don't have an account?
