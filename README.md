@@ -9,7 +9,7 @@ Music Player is a web application that allows users to listen to music, create p
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Frontend](#frontend)
-  - [The Components](#components)
+  - [The Components](#the-components)
   - [Routing](#routing)
 - [Backend](#backend)
   - [RESTful APIs](#restful-apis)
